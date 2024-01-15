@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/as/Documents/gitx/100xdocs-main'
+let g:netrw_dirhist_6='/home/as/Documents/projects/instagramClone/client'
+let g:netrw_dirhist_5='/home/as/Documents/projects/zippy'
+let g:netrw_dirhist_4='/home/as/Documents/gitx/my-app'
+let g:netrw_dirhist_3='/home/as/.config/nvim'
+let g:netrw_dirhist_2='/home/as/vmware'
+let g:netrw_dirhist_1='/home/as/extras/squashfs-root/usr/bin'
+let g:netrw_dirhist_0='/usr/bin'
+let g:netrw_dirhist_9='/home/as/extras'
+let g:netrw_dirhist_8='/usr/share/applications'
