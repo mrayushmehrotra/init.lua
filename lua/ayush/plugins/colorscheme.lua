@@ -2,20 +2,61 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		priority = 1000,
+		-- priority = 1000,
 		config = function()
 			-- load the colorscheme here
 			vim.cmd([[colorscheme catppuccin]])
 		end,
+		opts = {
+			transparent = true,
+		},
 	},
 	{
 		"rose-pine/nvim",
 		name = "rose-pine",
-		--	priority = 1000,
+		-- priority = 1000,
 		config = function()
 			-- load the colorscheme here
 			vim.cmd([[colorscheme rose-pine]])
 		end,
+		opts = {
+			transparent = true,
+		},
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		-- priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme tokyonight]])
+		end,
+		opts = {
+			transparent = true,
+		},
+	},
+
+	{
+		"tiagovla/tokyodark.nvim",
+		lazy = false,
+		-- priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme tokyodark]])
+		end,
+		opts = {
+			transparent = true,
+		},
+	},
+
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		-- priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme cyberdream]])
+		end,
+		opts = {
+			transparent = true,
+		},
 	},
 
 	-- {

@@ -13,7 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "ayush.plugins" }, { import = "ayush.plugins.lsp" } }, {
 	install = {
-		colorscheme = { "catppuccin", "rose-pine", "tokyonight" },
+		-- add multiple color scheme in nvim
+		colorscheme = { "catppuccin", "tokyonight", "rose-pine", "cyberdream", "tokyodark" },
 	},
 	checker = {
 		enabled = true,
