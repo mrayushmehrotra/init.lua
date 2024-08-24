@@ -14,10 +14,6 @@ return {
 		local transform_mod = require("telescope.actions.mt").transform_mod
 		local trouble_telescope = require("trouble.providers.telescope")
 		local keymap = vim.keymap -- for conciseness
-		local builtin = require("telescope.builtin")
-
-		vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
 		-- Custom action for opening trouble quickfix list
 		local custom_actions = transform_mod({
 			open_trouble_qflist = function(prompt_bufnr)
@@ -49,19 +45,5 @@ return {
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-
-		-- Set keymaps for todo-comments navigation
-		keymap.set("n", "]t", function()
-			require("todo-comments").jump_next()
-		end, { desc = "Next todo comment" })
-
-		keymap.set("n", "[t", function()
-			require("todo-comments").jump_prev()
-		end, { desc = "Previous todo comment" })
-
-		-- Set keymap for jumping to next error/warning todo comment
-		keymap.set("n", "]e", function()
-			require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
-		end, { desc = "Next error/warning todo comment" })
 	end,
 }

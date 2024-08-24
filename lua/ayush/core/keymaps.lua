@@ -8,7 +8,8 @@ local keymap = vim.keymap -- for conciseness
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
-
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move text down" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move text up" })
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
