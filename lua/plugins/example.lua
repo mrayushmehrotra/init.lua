@@ -65,7 +65,7 @@ return {
         layout_strategy = "horizontal",
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
-        winblend = 0,
+        winblend = 4,
       },
     },
   },
@@ -138,71 +138,82 @@ return {
         "python",
         "query",
         "regex",
-        "tsx",
+        "tsserver",
         "typescript",
         "vim",
         "yaml",
         "vimdoc",
+        "tsx",
         "python",
         "typescript",
         "rust",
         "jsdoc",
       },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
+        },
+      },
     },
-  },
 
-  -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
-  -- would overwrite `ensure_installed` with the new value.
-  -- If you'd rather extend the default config, use the code below instead:
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- add tsx and treesitter
-      vim.list_extend(opts.ensure_installed, {
-        "tsx",
-        "typescript",
-      })
-    end,
-  },
+    -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
+    -- would overwrite `ensure_installed` with the new value.
+    -- If you'd rather extend the default config, use the code below instead:
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        -- add tsx and treesitter
+        vim.list_extend(opts.ensure_installed, {
+          "tsx",
+          "typescript",
+        })
+      end,
+    },
 
-  -- the opts function can also be used to change the default opts:
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, "😄")
-    end,
-  },
+    -- the opts function can also be used to change the default opts:
+    {
+      "nvim-lualine/lualine.nvim",
+      event = "VeryLazy",
+      opts = function(_, opts)
+        table.insert(opts.sections.lualine_x, "😄")
+      end,
+    },
 
-  -- or you can return new options to override all the defaults
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return {
-        --[[add your custom lualine config here]]
-      }
-    end,
-  },
+    -- or you can return new options to override all the defaults
+    {
+      "nvim-lualine/lualine.nvim",
+      event = "VeryLazy",
+      opts = function()
+        return {
+          --[[add your custom lualine config here]]
+        }
+      end,
+    },
 
-  -- use min.starter instead of alpha
-  { import = "lazyvim.plugins.extras.ui.mini-starter" },
+    -- use min.starter instead of alpha
+    { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
-  -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
-  { import = "lazyvim.plugins.extras.lang.json" },
+    -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
+    { import = "lazyvim.plugins.extras.lang.json" },
 
-  -- add any tools you want to have installed below
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "cssls",
-        "tailwindcss",
-        "flake8",
+    -- add any tools you want to have installed below
+    {
+      "williamboman/mason.nvim",
+      opts = {
+        ensure_installed = {
+          "stylua",
+          "shellcheck",
+          "shfmt",
+          "cssls",
+          "tailwindcss",
+          "flake8",
+        },
       },
     },
   },
 }
+
