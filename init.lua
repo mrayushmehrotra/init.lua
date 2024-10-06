@@ -1,2 +1,2 @@
-require("ayush.core")
-require("ayush.lazy")
+require("josean.core")
+require("josean.lazy")
