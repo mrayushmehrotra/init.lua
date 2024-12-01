@@ -1,6 +1,5 @@
 return {
 	{
-
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
@@ -41,8 +40,6 @@ return {
 					colors.fg_sidebar = fg_dark
 				end,
 			})
-
-			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 	{
@@ -85,6 +82,27 @@ return {
 					italic = false,
 				},
 			})
+		end,
+	},
+
+	{
+		"AstroNvim/astrotheme",
+		name = "AstroTheme",
+		config = function()
+			require("astrotheme").setup({
+				disable_background = true,
+				styles = {
+					italic = false,
+				},
+
+				on_colors = function(colors)
+					colors.bg_highlight = "#143652"
+
+					colors.bg_statusline = "#011423"
+				end,
+			})
+
+			vim.cmd("colorscheme astrodark")
 		end,
 	},
 }
