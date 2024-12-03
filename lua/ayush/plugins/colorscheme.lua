@@ -81,6 +81,12 @@ return {
 				styles = {
 					italic = false,
 				},
+
+				on_colors = function(colors)
+					colors.bg_highlight = "#143652"
+					colors.bg = "#1B1B1B"
+					colors.bg_statusline = "#011423"
+				end,
 			})
 		end,
 	},
