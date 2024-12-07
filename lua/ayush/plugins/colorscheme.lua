@@ -42,10 +42,44 @@ return {
 			})
 		end,
 	},
+
 	{
 		"ellisonleao/gruvbox.nvim",
 		name = "gruvbox",
 		config = function()
+			local base_30 = {
+				white = "#f5f4f1",
+				darker_black = "#22231D",
+				black = "#272822",
+				black2 = "#2F302A",
+				one_bg = "#363731",
+				one_bg2 = "#3E3F39",
+				one_bg3 = "#464741",
+				grey = "#4D4E48",
+				grey_fg = "#555650",
+				grey_fg2 = "#5D5E58",
+				light_grey = "#64655F",
+				red = "#e36d76",
+				baby_pink = "#f98385",
+				pink = "#f36d76",
+				line = "#363942",
+				green = "#96c367",
+				vibrant_green = "#99c366",
+				nord_blue = "#81A1C1",
+				blue = "#51afef",
+				yellow = "#e6c181",
+				sun = "#fce668",
+				purple = "#c885d7",
+				dark_purple = "#b26fc1",
+				teal = "#34bfd0",
+				orange = "#d39467",
+				cyan = "#41afef",
+				statusline_bg = "#2F302A",
+				lightbg = "#3E3F39",
+				pmenu_bg = "#99c366",
+				folder_bg = "#61afef",
+			}
+
 			require("gruvbox").setup({
 				terminal_colors = true, -- add neovim terminal colors
 				undercurl = true,
@@ -65,13 +99,43 @@ return {
 				invert_intend_guides = false,
 				inverse = true, -- invert background for search, diffs, statuslines and errors
 				contrast = "", -- can be "hard", "soft" or empty string
-				palette_overrides = {},
-				overrides = {},
+				palette_overrides = {
+					bg = base_30.black,
+					bg0 = base_30.darker_black,
+					bg1 = base_30.one_bg,
+					bg2 = base_30.one_bg2,
+					bg3 = base_30.one_bg3,
+					fg = base_30.white,
+					red = base_30.red,
+					orange = base_30.orange,
+					yellow = base_30.yellow,
+					green = base_30.green,
+					teal = base_30.teal,
+					cyan = base_30.cyan,
+					blue = base_30.blue,
+					purple = base_30.purple,
+					magenta = base_30.pink,
+					grey = base_30.grey,
+					light_grey = base_30.light_grey,
+				},
+				overrides = {
+					Normal = { bg = base_30.black, fg = base_30.white },
+					Comment = { fg = base_30.grey_fg, italic = true },
+					LineNr = { fg = base_30.grey_fg },
+					CursorLineNr = { fg = base_30.yellow },
+					Pmenu = { bg = base_30.one_bg, fg = base_30.white },
+					PmenuSel = { bg = base_30.pmenu_bg, fg = base_30.black },
+					VertSplit = { fg = base_30.one_bg2 },
+					StatusLine = { bg = base_30.statusline_bg, fg = base_30.white },
+					Visual = { bg = base_30.line },
+					Directory = { fg = base_30.folder_bg },
+				},
 				dim_inactive = false,
 				transparent_mode = false,
 			})
 		end,
 	},
+
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
@@ -110,5 +174,25 @@ return {
 
 			vim.cmd("colorscheme astrodark")
 		end,
+	},
+	{
+		{
+			"catppuccin/nvim",
+			name = "catppuccin",
+			config = function()
+				require("catppuccin").setup({
+					disable_background = true,
+					styles = {
+						italic = false,
+					},
+
+					on_colors = function(colors)
+						colors.bg_highlight = "#143652"
+						colors.bg = "#1B1B1B"
+						colors.bg_statusline = "#011423"
+					end,
+				})
+			end,
+		},
 	},
 }
