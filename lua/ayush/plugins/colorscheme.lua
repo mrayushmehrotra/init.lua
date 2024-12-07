@@ -22,6 +22,7 @@ return {
 					sidebars = transparent and "transparent" or "dark",
 					floats = transparent and "transparent" or "dark",
 				},
+
 				on_colors = function(colors)
 					colors.bg = bg
 					colors.bg_dark = transparent and colors.none or bg_dark
@@ -40,6 +41,8 @@ return {
 					colors.fg_sidebar = fg_dark
 				end,
 			})
+			-- Set green background for selected item
+			vim.cmd([[highlight! PmenuSel guibg=#FCA5A5 guifg=#000000]])
 		end,
 	},
 
@@ -84,6 +87,7 @@ return {
 				terminal_colors = true, -- add neovim terminal colors
 				undercurl = true,
 				underline = false,
+
 				bold = true,
 				italic = {
 					strings = false,
@@ -97,7 +101,7 @@ return {
 				invert_signs = false,
 				invert_tabline = false,
 				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
+				inverse = true, -- invert background for search, diffs, statuslines, and errors
 				contrast = "", -- can be "hard", "soft" or empty string
 				palette_overrides = {
 					bg = base_30.black,
@@ -133,6 +137,9 @@ return {
 				dim_inactive = false,
 				transparent_mode = false,
 			})
+
+			-- Set green background for selected item
+			vim.cmd([[highlight! PmenuSel guibg=#99C366 guifg=#000000]])
 		end,
 	},
 
@@ -145,7 +152,6 @@ return {
 				styles = {
 					italic = false,
 				},
-
 				on_colors = function(colors)
 					colors.bg_highlight = "#143652"
 					colors.bg = "#1B1B1B"
@@ -164,35 +170,32 @@ return {
 				styles = {
 					italic = false,
 				},
-
 				on_colors = function(colors)
 					colors.bg_highlight = "#143652"
-
 					colors.bg_statusline = "#011423"
 				end,
 			})
 
 			vim.cmd("colorscheme astrodark")
+			vim.cmd([[highlight! PmenuSel guibg=#FCA5A5 guifg=#000000]])
 		end,
 	},
-	{
-		{
-			"catppuccin/nvim",
-			name = "catppuccin",
-			config = function()
-				require("catppuccin").setup({
-					disable_background = true,
-					styles = {
-						italic = false,
-					},
 
-					on_colors = function(colors)
-						colors.bg_highlight = "#143652"
-						colors.bg = "#1B1B1B"
-						colors.bg_statusline = "#011423"
-					end,
-				})
-			end,
-		},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		config = function()
+			require("catppuccin").setup({
+				disable_background = true,
+				styles = {
+					italic = false,
+				},
+				on_colors = function(colors)
+					colors.bg_highlight = "#143652"
+					colors.bg = "#1B1B1B"
+					colors.bg_statusline = "#011423"
+				end,
+			})
+		end,
 	},
 }
