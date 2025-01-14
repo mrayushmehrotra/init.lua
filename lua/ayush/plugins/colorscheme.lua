@@ -198,4 +198,8 @@ return {
 			})
 		end,
 	},
+	{
+		"shaunsingh/nord.nvim",
+		name = "nord",
+	},
 }
