@@ -6,12 +6,12 @@ return {
 				-- Require providers
 				require("hover.providers.lsp")
 				-- Uncomment other providers as needed
-				-- require('hover.providers.gh')
-				-- require('hover.providers.gh_user')
+				require("hover.providers.gh")
+				require("hover.providers.gh_user")
 				-- require('hover.providers.jira')
 				-- require('hover.providers.dap')
-				-- require('hover.providers.fold_preview')
-				-- require('hover.providers.diagnostic')
+				require("hover.providers.fold_preview")
+				require("hover.providers.diagnostic")
 				-- require('hover.providers.man')
 				-- require('hover.providers.dictionary')
 			end,

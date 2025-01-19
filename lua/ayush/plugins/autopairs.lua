@@ -1,4 +1,5 @@
 return {
+	--TODO: new tabel added
 	"windwp/nvim-autopairs",
 	event = { "InsertEnter" },
 	dependencies = {
