@@ -1,56 +1,19 @@
 return {
-	"nvim-tree/nvim-tree.lua",
-	dependencies = "nvim-tree/nvim-web-devicons",
+	"stevearc/oil.nvim",
 	config = function()
-		local nvimtree = require("nvim-tree")
+		local oil = require("oil")
+		oil.setup()
 
-		-- recommended settings from nvim-tree documentation
-		vim.g.loaded_netrw = 1
-		vim.g.loaded_netrwPlugin = 1
-
-		nvimtree.setup({
-			view = {
-				width = 35,
-				relativenumber = true,
-			},
-			-- change folder arrow icons
-			renderer = {
-				indent_markers = {
-					enable = true,
-				},
-				icons = {
-					glyphs = {
-						folder = {
-							arrow_closed = "", -- arrow when folder is closed
-							arrow_open = "", -- arrow when folder is open
-						},
-					},
-				},
-			},
-			-- disable window_picker for
-			-- explorer to work well with
-			-- window splits
-			actions = {
-				open_file = {
-					window_picker = {
-						enable = false,
-					},
-				},
-			},
-			filters = {
-				custom = { ".DS_Store", "node_modules" },
-			},
-			git = {
-				ignore = false,
-			},
-		})
-
-		-- set keymaps
-		local keymap = vim.keymap -- for conciseness
-
-		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-		keymap.set("n", "<C-a>", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
-		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+		-- Key bindings
+		vim.keymap.set("n", "-", oil.toggle_float, { desc = "Filetree in floating mode" })
+		vim.keymap.set("n", "<C-a>", "<CMD>Oil<CR>", { desc = "Open filetree" })
+		vim.keymap.set("n", "<leader>pv", oil.open, { desc = "Open parent directory" }) -- Open parent directory
+		vim.keymap.set("n", "q", "<CMD>q<CR>", { desc = "Close filetree" }) -- Close filetree
+		vim.keymap.set("n", "<leader>v", function()
+			vim.cmd("vsplit | Oil")
+		end, { desc = "Open filetree in vertical split" }) -- Open filetree in vertical split
+		vim.keymap.set("n", "<leader>h", function()
+			vim.cmd("split | Oil")
+		end, { desc = "Open filetree in horizontal split" }) -- Open filetree in horizontal split
 	end,
 }
