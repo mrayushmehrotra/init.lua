@@ -3,6 +3,7 @@
 # Use fzf to select a directory
 selected=$(find ~/codes ~/learn -mindepth 1 -maxdepth 3 -type d 2>/dev/null | fzf)
 
+
 # Check if a directory was selected
 if [ -n "$selected" ]; then
     # Extract the folder name (basename of the selected directory)

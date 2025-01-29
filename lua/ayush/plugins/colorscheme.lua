@@ -54,8 +54,4 @@ return {
 		"shaunsingh/nord.nvim",
 		name = "nord",
 	},
-	{
-
-		"olimorris/onedarkpro.nvim",
-	},
 }
