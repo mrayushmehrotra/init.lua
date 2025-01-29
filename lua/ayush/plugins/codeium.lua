@@ -3,7 +3,6 @@ return {
 	config = function()
 		-- Variable to track the Codeium state
 		vim.g.codeium_enabled = true
-
 		-- Keybindings for Codeium
 		vim.keymap.set("i", "<C-g>", function()
 			return vim.fn["codeium#Accept"]()
