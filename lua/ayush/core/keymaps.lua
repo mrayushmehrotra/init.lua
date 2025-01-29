@@ -15,7 +15,7 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 
 -- Navigate to the previous buffer with Ctrl + h
 keymap.set("n", "<Tab>h", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
-keymap.set("n", "q", "<CMD>q<CR>", { desc = "Close filetree" }) -- Close filetree
+
 -- Navigate to the next buffer with Ctrl + l
 keymap.set("n", "<Tab>l", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 
